@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# もしもdeviseでadminユーザのデフォルト値が使いたくなったら、以下のコメントアウトを解除
+# admin = Admin.new(:email => 'admindummy@', :password => 'adminpass')
+# admin.save!
+
