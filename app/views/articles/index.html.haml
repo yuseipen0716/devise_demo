@@ -1,3 +1,8 @@
 %body 
-    .container
-        = link_to "新規投稿", new_article_path, class: "nav-link"
+    %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+        .container-fluid.w-75 
+            = link_to "devise demo", root_path, class: "navbar-brand"
+            .collapse.navbar-collapse.justify-content-end#navbarNav 
+                %ul.navbar-nav
+                    %li.nav-item
+                        = link_to "新規投稿", new_article_path, class: "nav-link active"
