@@ -6,3 +6,6 @@
                 %ul.navbar-nav
                     %li.nav-item
                         = link_to "新規投稿", new_article_path, class: "nav-link active"
+                    - if admin_signed_in?
+                        %li.nav-item
+                            = link_to "ログアウト", destroy_admin_session_path, class: "nav-link", method: :delete
