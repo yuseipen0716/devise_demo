@@ -7,6 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # もしもdeviseでadminユーザのデフォルト値が使いたくなったら、以下のコメントアウトを解除
-# admin = Admin.new(:email => 'admindummy@', :password => 'adminpass')
-# admin.save!
+admins = Admin.new(:email => 'admindummy@mail', :password => 'adminpass')
+admins.save!
 
