@@ -1,11 +1,33 @@
-%body 
-    %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-        .container-fluid.w-75 
-            = link_to "devise demo", root_path, class: "navbar-brand"
-            .collapse.navbar-collapse.justify-content-end#navbarNav 
-                %ul.navbar-nav
-                    %li.nav-item
-                        = link_to "新規投稿", new_article_path, class: "nav-link active"
-                    - if admin_signed_in?
-                        %li.nav-item
-                            = link_to "ログアウト", destroy_admin_session_path, class: "nav-link", method: :delete
+%body
+  %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    .container-fluid.w-75
+      = link_to "devise demo", root_path, class: "navbar-brand"
+      .collapse.navbar-collapse.justify-content-end#navbarNav
+        %ul.navbar-nav
+          %li.nav-item
+            = link_to "新規投稿", new_article_path, class: "nav-link active"
+          - if admin_signed_in?
+            %li.nav-item
+              = link_to "ログアウト", destroy_admin_session_path, class: "nav-link", method: :delete
+
+  %h1 Listing articles
+
+  %table
+    %thead
+      %tr
+        %th Title
+        %th Content 
+        %th 
+        %th 
+        %th
+    %tbody
+      - @articles.each do |article|
+        %tr
+          %td= article.title
+          %td= article.content
+          %td= link_to 'Show', article
+          %td= link_to 'Edit', edit_article_path(article)
+          %td= link_to 'Destroy', article, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  %br
+  = link_to 'New Article', new_article_path
+
