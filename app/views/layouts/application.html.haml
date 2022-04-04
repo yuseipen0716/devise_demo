@@ -9,4 +9,38 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      .container-fluid.w-75
+        = link_to "devise demo", root_path, class: "navbar-brand"
+        .collapse.navbar-collapse.justify-content-end#navbarNav
+          %ul.navbar-nav
+            %li.nav-item
+              = link_to "新規投稿", new_article_path, class: "nav-link active"
+            - if admin_signed_in?
+              %li.nav-item
+                = link_to "ログアウト", destroy_admin_session_path, class: "nav-link", method: :delete
+    %header.py-4.bg-light
+      .container
+        .text-center.my-5
+          %h1.fw-bolder Welcome Devise Demo
+          %p.lead.mb-0 sample text
+    .contaier.w-75.mx-auto.d-flex
+      .container.w-75
+        -# メイン領域
+        = yield
+      .container.w-25
+        -# サイドバー
+        .categories.m-3
+          -# カテゴリー欄
+          .card
+            .card-header Categories
+            %ul.list-group.list-group-flush
+              %li.list-group-item
+                -# 一旦パスはroot_pathで仮置きしておく。後で戻しましょう。
+                = link_to "Ruby", root_path
+              %li.list-group-item
+                -# 一旦パスはroot_pathで仮置きしておく。後で戻しましょう。
+                = link_to "PHP", root_path
+              %li.list-group-item
+                -# 一旦パスはroot_pathで仮置きしておく。後で戻しましょう。
+                = link_to "SQL", root_path
