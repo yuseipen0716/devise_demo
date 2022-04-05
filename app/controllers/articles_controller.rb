@@ -22,8 +22,8 @@ class ArticlesController < ApplicationController
     end
 
     def show
-      render layout: "show_layout"
       set_article
+      render layout: "show_layout"
     end
 
     def edit
