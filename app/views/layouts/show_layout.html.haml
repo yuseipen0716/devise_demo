@@ -1,0 +1,46 @@
+
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title DeviseDemo
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      .container-fluid.w-75
+        = link_to "devise demo", root_path, class: "navbar-brand"
+        .collapse.navbar-collapse.justify-content-end#navbarNav
+          %ul.navbar-nav
+            %li.nav-item
+              = link_to "新規投稿", new_article_path, class: "nav-link active"
+            - if admin_signed_in?
+              %li.nav-item
+                = link_to "ログアウト", destroy_admin_session_path, class: "nav-link active", method: :delete
+    .container
+      - if flash.notice
+        .alert.alert-success.text-center
+          = flash.notice
+    .contaier.w-75.mx-auto.d-flex
+      .container.w-75
+        -# メイン領域
+        = yield
+      .container.w-25
+        -# サイドバー
+        .categories.m-3
+          -# カテゴリー欄
+          .card
+            .card-header Categories
+            %ul.list-group.list-group-flush
+              %li.list-group-item
+                -# 一旦パスはroot_pathで仮置きしておく。後で戻しましょう。
+                = link_to "Ruby", root_path
+              %li.list-group-item
+                -# 一旦パスはroot_pathで仮置きしておく。後で戻しましょう。
+                = link_to "PHP", root_path
+              %li.list-group-item
+                -# 一旦パスはroot_pathで仮置きしておく。後で戻しましょう。
+                = link_to "SQL", root_path
