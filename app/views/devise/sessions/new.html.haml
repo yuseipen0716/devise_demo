@@ -1,6 +1,7 @@
 %body 
   .container.w-75.text-center.mt-5
     %h2 ログイン
+    - resource = Admin.new unless resource
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .field
         = f.label :メールアドレス
