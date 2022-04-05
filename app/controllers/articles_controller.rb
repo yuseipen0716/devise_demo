@@ -21,6 +21,14 @@ class ArticlesController < ApplicationController
       end
     end
 
+    def show
+      set_article
+    end
+
+    def edit
+      set_article
+    end
+
     private
     # Use callbacks to share common setup or constaraints berween actions.
     def set_article
