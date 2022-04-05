@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title DeviseDemo
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      .container-fluid.w-75
+        = link_to "devise demo", root_path, class: "navbar-brand"
+    .container
+      - if flash.notice
+        .alert.alert-success.text-center
+          = flash.notice
+    .contaier.w-75.mx-auto
+      = yield
