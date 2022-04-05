@@ -29,6 +29,13 @@ class ArticlesController < ApplicationController
       set_article
     end
 
+    def update
+      set_article
+      if @article.update(article_paramas)
+        redirect_to @article, notice: "更新が完了しました"
+      end
+    end
+
     private
     # Use callbacks to share common setup or constaraints berween actions.
     def set_article
