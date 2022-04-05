@@ -18,7 +18,11 @@
               = link_to "新規投稿", new_article_path, class: "nav-link active"
             - if admin_signed_in?
               %li.nav-item
-                = link_to "ログアウト", destroy_admin_session_path, class: "nav-link", method: :delete
+                = link_to "ログアウト", destroy_admin_session_path, class: "nav-link active", method: :delete
+    .container
+      - if flash.notice
+        .alert.alert-success.text-center
+          = flash.notice
     %header.py-4.bg-light
       .container
         .text-center.my-5
