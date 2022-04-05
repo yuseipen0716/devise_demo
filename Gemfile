@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'hamlit-rails', '~> 0.2.3'
 # gem 'html2haml', '~> 2.2.0'
 
+# 日本語化
+gem 'rails-i18n', '~> 6.0'
+
 # deviseを導入
 gem 'devise'
 

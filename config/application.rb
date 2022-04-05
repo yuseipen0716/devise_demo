@@ -22,9 +22,9 @@ Bundler.require(*Rails.groups)
 module DeviseDemo
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    # i18nの設定
     config.load_defaults 6.1
-
-    # deviseを日本語化
+    config.time_zone = "Tokyo"
     config.i18n.default_locale = :ja
 
     # Configuration for the application, engines, and railties goes here.
