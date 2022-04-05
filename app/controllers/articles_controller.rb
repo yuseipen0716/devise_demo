@@ -22,6 +22,7 @@ class ArticlesController < ApplicationController
     end
 
     def show
+      render layout: "show_layout"
       set_article
     end
 
@@ -31,7 +32,7 @@ class ArticlesController < ApplicationController
 
     def update
       set_article
-      if @article.update(article_paramas)
+      if @article.update(article_params)
         redirect_to @article, notice: "更新が完了しました"
       end
     end
