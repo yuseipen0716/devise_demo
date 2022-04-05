@@ -37,6 +37,12 @@ class ArticlesController < ApplicationController
       end
     end
 
+    def destroy
+      set_article
+      @article.destroy!
+      redirect_to root_path, notice: "記事を削除しました"
+    end
+
     private
     # Use callbacks to share common setup or constaraints berween actions.
     def set_article
