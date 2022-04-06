@@ -17,15 +17,24 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    set_category
   end
 
   def edit
+    set_category
   end
 
   def update
+    set_category
+    if @category.update(category_params)
+      redirect_to categories_path, notice: "カテゴリー名を変更しました"
+    end
   end
 
   def destroy
+    set_category
+    @category.destroy!
+    redirect_to categories_path, notice: "カテゴリーの削除に成功しました"
   end
 
   private
