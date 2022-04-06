@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+*
+* [IDEArepoへのリンク](https://github.com/yuseipen0716/IDEA/blob/main/Rails_blog_idea.md)
