@@ -5,13 +5,13 @@
       .col-sm-6S.m-3
         .card
           .card-body
-            .small.text-muted 
+            .small.text-muted
               = "created_at: #{article.created_at.strftime("%Y/ %m/ %d")} | updated_at: #{article.created_at.strftime("%Y/ %m/ %d")}"
-              %h5.card-title
+              %h5.card-title.mt-3
                 = article.title
               %p.card-text
                 = article.content
-              .d-flex.justify-content-around
+              .d-flex.justify-content-end
                 = button_to "Read More", article, :method => :get, class: "btn btn-primary mx-3" 
                 = button_to "編集", edit_article_path(article), :method => :get, class: "btn btn-success mx-3"
                 = button_to "削除", article, :method => :delete, :data => { :confirm => '本当に削除しますか?' }, class: "btn btn-danger mx-3"

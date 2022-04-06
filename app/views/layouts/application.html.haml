@@ -43,4 +43,4 @@
               - @categories.each do |category|
                 %li.list-group-item
                   = link_to "#{category.name}", category
-          = link_to "カテゴリーを管理", categories_path
+          = button_to "カテゴリーを管理", categories_path, :method => :get, class: "btn btn-primary my-3"
