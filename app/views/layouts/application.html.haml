@@ -39,14 +39,7 @@
           .card
             .card-header Categories
             %ul.list-group.list-group-flush
-              %li.list-group-item
-                -# 一旦パスはroot_pathで仮置きしておく。後で戻しましょう。
-                = link_to "Ruby", root_path
-              %li.list-group-item
-                -# 一旦パスはroot_pathで仮置きしておく。後で戻しましょう。
-                = link_to "PHP", root_path
-              %li.list-group-item
-                -# 一旦パスはroot_pathで仮置きしておく。後で戻しましょう。
-                = link_to "SQL", root_path
-          .container.mx-auto
-            = link_to "カテゴリーを管理", categories_path
+              - @categories = Category.all
+              - @categories.each do |category|
+                %li.list-group-item
+                  = link_to "#{category.name}", category
