@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
     
     def new
       @article = Article.new
+      render layout: "simple_form"
     end
 
     def create

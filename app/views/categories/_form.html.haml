@@ -1,7 +1,7 @@
 = form_with(model: @category, class: "form-horizontal") do |f|
   #errors
-    .form-group
+    .form-group.my-4
       = f.label :name
-      = f.text_field :name, class: "form-controll"
-    .action.mt-3
+      = f.text_field :name, class: "form-control"
+    .action.my-4
       = f.submit 'Save'

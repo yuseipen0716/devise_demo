@@ -1,11 +1,12 @@
 class CategoriesController < ApplicationController
   def index
     @categories = Category.all
-    render layout: "category_simple"
+    render layout: "simple"
   end
 
   def new
     @category = Category.new
+    render layout: "simple_form"
   end
 
   def create
@@ -18,6 +19,7 @@ class CategoriesController < ApplicationController
 
   def show
     set_category
+    @categorizations = @category.categorizations.includes(:article).order(:created_at)
   end
 
   def edit

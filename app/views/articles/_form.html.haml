@@ -1,10 +1,15 @@
 = form_with(model: @article, class: "form-horizontal") do |f|
   #errors
-  .form-group
-    = f.label :title
-    = f.text_field :title, class: "form-control"
-  .form-group
-    = f.label :content
-    = f.text_area :content, class: "form-control"
-  .actions.mt-3
-    = f.submit 'Save'
+  .form-group.my4
+    = f.label :title, class: "form-label mt-3"
+    = f.text_field :title, class: "form-control", id: "exampleFormControlInput1"
+  .form-group.my4
+    = f.label :content, class: "form-label mt-3"
+    = f.text_area :content, class: "form-control", id: "exampleFormControlTextarea1"
+  .form-group.my4
+    %h4.mt-4 カテゴリー
+    .conterner.mx-atuo.d-flex.justify-content-evenly
+      = collection_check_boxes(:article, :category_ids, Category.all, :id, :name) do |t|
+        = t.label { t.check_box + t.text }
+  .actions.mb-4
+    = f.submit 'Save', class: "my-4 btn btn-primary"

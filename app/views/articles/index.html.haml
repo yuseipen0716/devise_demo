@@ -1,11 +1,12 @@
 %body
-  - @articles.each do |article|
-    .container.text-center
-      .row.row-cols-1.row-cols-md-2.g-4.m-1
-        .col
-          .card
-            .card-body
-              .small.text-muted 日付
+  .container
+    .row
+    - @articles.each do |article|
+      .col-sm-6S.m-3
+        .card
+          .card-body
+            .small.text-muted 
+              = "created_at: #{article.created_at.strftime("%Y/ %m/ %d")} | updated_at: #{article.created_at.strftime("%Y/ %m/ %d")}"
               %h5.card-title
                 = article.title
               %p.card-text
