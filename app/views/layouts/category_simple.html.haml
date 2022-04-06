@@ -15,7 +15,7 @@
         .collapse.navbar-collapse.justify-content-end#navbarNav
           %ul.navbar-nav
             %li.nav-item
-              = link_to "新規投稿", new_article_path, class: "nav-link active"
+              = link_to "カテゴリーを追加", new_category_path, class: "nav-link active"
             - if admin_signed_in?
               %li.nav-item
                 = link_to "ログアウト", destroy_admin_session_path, class: "nav-link active", method: :delete
@@ -23,23 +23,5 @@
       - if flash.notice
         .alert.alert-success.text-center
           = flash.notice
-    .contaier.w-75.mx-auto.mt-5.d-flex
-      .container.w-75
-        -# メイン領域
-        = yield
-      .container.w-25
-        -# サイドバー
-        .categories.m-3
-          -# カテゴリー欄
-          .card
-            .card-header Categories
-            %ul.list-group.list-group-flush
-              %li.list-group-item
-                -# 一旦パスはroot_pathで仮置きしておく。後で戻しましょう。
-                = link_to "Ruby", root_path
-              %li.list-group-item
-                -# 一旦パスはroot_pathで仮置きしておく。後で戻しましょう。
-                = link_to "PHP", root_path
-              %li.list-group-item
-                -# 一旦パスはroot_pathで仮置きしておく。後で戻しましょう。
-                = link_to "SQL", root_path
+    .contaier.w-75.mx-auto.mt-5
+      = yield
