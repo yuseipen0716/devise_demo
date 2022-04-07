@@ -32,8 +32,9 @@ class ArticlesController < ApplicationController
       render layout: "show_layout"
     end
 
-    def archive
-      @archives = aggregate_monthly
+    def archives
+      @articles = Article.all
+      @archives = @articles.group("strftime('%Y%m', created_at)").order(created_at: :desc).count
     end
 
     def edit

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   }
 
   resources :articles
+  get '/archives/', to: 'articles#archives', as: :monthly_archive
 
   resources :categories
 

@@ -47,9 +47,9 @@
             = button_to "カテゴリーを管理", categories_path, :method => :get, class: "btn btn-primary my-3"
         .archives.m-3
           -# 月別アーカイブ
-          .card
-            .card-header Archives
-            %ul.list-group.list-group-flush
-              - @archives.each do |yyyymm, count|
-                %li.list-group-item
-                  = link_to show_archive(yyyymm, count), root_path
+-#          .card
+-#            .card-header Archives
+-#            %ul.list-group.list-group-flush
+-#              - @archives.each do |yyyymm, count|
+-#                %li.list-group-item
+-#                  = link_to show_archive(yyyymm, count), monthly_archive_path
