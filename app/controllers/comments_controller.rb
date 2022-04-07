@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  def crgate
+  def create
   end
 
   private
