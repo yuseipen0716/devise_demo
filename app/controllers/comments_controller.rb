@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  def crgate
+  end
+
   private
 
   def comment_params
