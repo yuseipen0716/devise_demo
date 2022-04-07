@@ -5,11 +5,14 @@
   .container
     .small.text-muted
       = "created_at: #{@article.created_at.strftime("%Y/ %m/ %d")} | updated_at: #{@article.created_at.strftime("%Y/ %m/ %d")}"
-  -# カテゴリーのボタンを置きたい
+    -# カテゴリーのボタンを置きたい
+    .container.d-flex.justify-content-start
+      - @categorizations.each do |categorization|
+        = button_to "#{categorization.category.name}", categorization.category, :method => :get, class: "btn btn-outline-primary btn-sm m-3 text-decoration-none"
+  %hr
   -# アイキャッチ画像も
-  .my-3.fs-5.lh-base
+  .my-5.fs-5.lh-base.py-2
     = @article.content
-
-  .d-flex.justify-content-around.mt-4
-    = button_to "編集", edit_article_path(@article), :method => :get, class: "btn btn-success mx-3"
-    = button_to "削除", @article, :method => :delete, :data => { :confirm => '本当に削除しますか?' }, class: "btn btn-danger mx-3"
+  .mb-5
+    .card.bg-light
+      .card-body

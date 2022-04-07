@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
 
     def show
       set_article
-      @archives = aggregate_monthly
+      @categorizations = @article.categorizations.includes(:category).order(:created_at)
       render layout: "show_layout"
     end
 
