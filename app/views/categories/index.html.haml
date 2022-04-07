@@ -2,11 +2,11 @@
   .container.w-75
     %h1.text-center.my-4
       カテゴリー管理
-    - @categories.each do |category|
-      .container.d-flex.justify-content-between
-        .w-75
-          %h3
-            = category.name
-        .d-flex.justify-content-around
-          = button_to "編集", edit_category_path(category), :method => :get, class: "btn btn-success mx-3"
-          = button_to "削除", category, :method => :delete, :data => { :confirm => '本当に削除しますか?' }, class: "btn btn-danger mx-3"
+    .row
+      - @categories.each do |category|
+        .card.bg-light.my-4
+          .card-body.p-4.d-flex.justify-content-between
+            = link_to "#{category.name}", category, class: "fs-2 font-monoscpace text-decoration-none"
+            .d-flex.justify-content-end
+              = button_to "編集", edit_category_path(category), :method => :get, class: "btn btn-success mx-3"
+              = button_to "削除", category, :method => :delete, :data => { :confirm => '本当に削除しますか?' }, class: "btn btn-danger mx-3"
