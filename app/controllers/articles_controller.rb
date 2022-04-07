@@ -1,6 +1,10 @@
 class ArticlesController < ApplicationController
     def index
       @articles = Article.all
+      @categories = Category.all
+      @archives = @articles.group("strftime('%Y%m', created_at)").order(created_at: :desc).count
+      
+      # ↑controller内にこういうロジックみたいなのは書かない方がいいのだろうけど、どうにもならず、書いた。モデルの方で処理できるように書き直したいところ
     end
     
     def new
@@ -24,7 +28,12 @@ class ArticlesController < ApplicationController
 
     def show
       set_article
+      @archives = aggregate_monthly
       render layout: "show_layout"
+    end
+
+    def archive
+      @archives = aggregate_monthly
     end
 
     def edit
