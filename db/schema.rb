@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_06_045555) do
+ActiveRecord::Schema.define(version: 2022_04_07_095037) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 2022_04_06_045555) do
     t.index ["category_id"], name: "index_categorizations_on_category_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "commenter"
+    t.text "body", null: false
+    t.integer "article_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
   add_foreign_key "categorizations", "articles"
   add_foreign_key "categorizations", "categories"
+  add_foreign_key "comments", "articles"
 end

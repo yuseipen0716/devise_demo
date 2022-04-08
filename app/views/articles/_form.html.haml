@@ -1,12 +1,12 @@
 = form_with(model: @article, class: "form-horizontal") do |f|
   #errors
-  .form-group.my4
+  .form-group.my-4
     = f.label :title, class: "form-label mt-3"
     = f.text_field :title, class: "form-control", id: "exampleFormControlInput1"
-  .form-group.my4
+  .form-group.my-4
     = f.label :content, class: "form-label mt-3"
     = f.text_area :content, class: "form-control", id: "exampleFormControlTextarea1"
-  .form-group.my4
+  .form-group.my-4
     %h4.mt-4 カテゴリー
     .conterner.mx-atuo.d-flex.justify-content-evenly
       = collection_check_boxes(:article, :category_ids, Category.all, :id, :name) do |t|

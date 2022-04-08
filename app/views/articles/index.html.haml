@@ -6,11 +6,11 @@
         .card-body.p-4
           .small.text-muted
             = "created_at: #{article.created_at.strftime("%Y/ %m/ %d")} | updated_at: #{article.created_at.strftime("%Y/ %m/ %d")}"
-          %h5.card-title.mt-3
+          %h5.card-title.mt-3.fw-bolder
             = article.title
           %p.card-text
-            = article.content
+            = article.content.truncate(50, omission: '...<続きは下のボタンから>')
           .d-flex.justify-content-end
-            = button_to "Read More", article, :method => :get, class: "btn btn-primary mx-3" 
+            = button_to "記事の続き", article, :method => :get, class: "btn btn-primary mx-3" 
             = button_to "編集", edit_article_path(article), :method => :get, class: "btn btn-success mx-3"
             = button_to "削除", article, :method => :delete, :data => { :confirm => '本当に削除しますか?' }, class: "btn btn-danger mx-3"
