@@ -15,17 +15,23 @@
     = @article.content
   .mb-5
     .card.bg-light
+      .card-header コメント欄
       .card-body
         - @comments.each do |comment|
-          = comment.commenter
-          = comment.body
+          .container
+            .fw-bolder
+              = comment.commenter
+            = comment.body
+            - unless comment == Comment.last
+              %hr
+        %h5.mt-5 コメント投稿
         = form_with(model: [@article, @comment], class: "form-horizontal") do |f|
-          .form-group.my-4
-            = f.label :commenter, class: "form-label mt-3"
+          .form-group.my-1
+            = f.label :お名前, class: "form-label mt-3"
             = f.text_field :commenter, class: "form-control"
-          .form-group.my-4
-            = f.label :body, class: "form-label mt-3"
+          .form-group.my-1
+            = f.label :コメント内容, class: "form-label mt-3"
             = f.text_area :body, class: "form-control"
             = f.hidden_field :article_id, value: @article.id
-          .actions.mb-4
-            = f.submit 'Save', class: "my-4 btn btn-primary"
+          .actions.mb-3.text-center
+            = f.submit '投稿', class: "my-4 btn btn-primary"
