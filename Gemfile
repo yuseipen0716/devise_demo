@@ -35,6 +35,14 @@ gem 'devise'
 gem 'kaminari', '~> 1.2.1'
 gem 'bootstrap5-kaminari-views', '~> 0.0.1'
 
+# markdown-editorとしてQiita-markdown入れてみる
+gem 'qiita-markdown'
+# これも必要らしい
+gem 'html-pipeline'
+gem 'github-linguist'
+gem 'rouge'
+gem 'bootstrap-sass'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
