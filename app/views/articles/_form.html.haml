@@ -3,9 +3,9 @@
   .form-group.my-4
     = f.label :title, class: "form-label mt-3"
     = f.text_field :title, class: "form-control", id: "exampleFormControlInput1"
-  .form-group.my-4
+  .form-group.field.my-4
     = f.label :content, class: "form-label mt-3"
-    = f.text_area :content, class: "form-control", id: "exampleFormControlTextarea1"
+    = f.rich_text_area :body
   .form-group.my-4
     %h4.mt-4 カテゴリー
     .conterner.mx-atuo.d-flex.justify-content-evenly

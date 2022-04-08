@@ -8,6 +8,8 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "bootstrap"
 import "bootstrap/scss/bootstrap.scss"
+import "trix"
+import "@rails/actiontext"
 
 Rails.start()
 Turbolinks.start()
