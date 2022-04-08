@@ -28,6 +28,11 @@ class ArticlesController < ApplicationController
         end
       end
     end
+    
+    def attach
+      attachment = Attachment.create! image: params[:image]
+      render json: { filename: url_for(attachment.image) }
+    end
 
     def show
       set_article
