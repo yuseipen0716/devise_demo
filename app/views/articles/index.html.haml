@@ -14,4 +14,4 @@
             = button_to "記事の続き", article, :method => :get, class: "btn btn-primary mx-3" 
             - if admin_signed_in?
               = button_to "編集", edit_article_path(article), :method => :get, class: "btn btn-success mx-3"
-              = button_to "削除", article, :method => :delete, :data => { :confirm => '本当に削除しますか?' }, class: "btn btn-danger mx-3"
+    = paginate @articles, theme: 'bootstrap-5'
