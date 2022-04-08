@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_admin!, except: [:create]
   def create
     @comment = Comment.new(comment_params)
 
