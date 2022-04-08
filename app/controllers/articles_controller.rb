@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
       @article = Article.new(article_params)
 
       respond_to do |format|
-        if @article.save
+        if @article.save!
           format.html { redirect_to article_url(@article), notice: "記事を新規作成しました" }
           format.json { render :show, status: :created, location: @article }
         else
@@ -72,6 +72,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :content, { category_ids: [] })
+      params.require(:article).permit(:title, :content, :body, { category_ids: [] })
     end
 end

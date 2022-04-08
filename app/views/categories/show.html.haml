@@ -12,7 +12,7 @@
           %h5.card-title.mt-3
             = categorization.article.title
           %p.card-text
-            = categorization.article.body.truncate(50, omission: '...<続きは下のボタンから>')
+            = strip_tags(categorization.article.body.to_s).gsub(/[\n]/,"").strip.truncate(50, omission: '...<続きは下のボタンから>')
           .d-flex.justify-content-end
             = button_to "記事の続き", categorization.article, :method => :get, class: "btn btn-primary mx-3" 
             - if admin_signed_in?
