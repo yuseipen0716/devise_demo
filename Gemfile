@@ -31,6 +31,10 @@ gem 'rails-i18n', '~> 6.0'
 # deviseを導入
 gem 'devise'
 
+# Kaminariでページネーション実装
+gem 'kaminari', '~> 1.2.1'
+gem 'bootstrap5-kaminari-views', '~> 0.0.1'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
