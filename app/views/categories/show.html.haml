@@ -18,3 +18,4 @@
             - if admin_signed_in?
               = button_to "編集", edit_article_path(categorization.article), :method => :get, class: "btn btn-success mx-3"
               = button_to "削除", categorization.article, :method => :delete, :data => { :confirm => '本当に削除しますか?' }, class: "btn btn-danger mx-3"
+    = paginate @categorizations, theme: 'bootstrap-5'
