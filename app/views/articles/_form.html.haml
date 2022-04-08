@@ -5,11 +5,11 @@
     = f.text_field :title, class: "form-control", id: "exampleFormControlInput1"
   .form-group.my-4
     = f.label :content, class: "form-label mt-3"
-    = f.text_area :content, class: "form-control", id: "exampleFormControlTextarea1"
+    = f.text_area :content, class: "form-control", id: "editor"
   .form-group.my-4
     %h4.mt-4 カテゴリー
     .conterner.mx-atuo.d-flex.justify-content-evenly
       = collection_check_boxes(:article, :category_ids, Category.all, :id, :name) do |t|
         = t.label { t.check_box + t.text }
   .actions.mb-4
-    = f.submit 'Save', class: "my-4 btn btn-primary"
+    = f.submit '保存', class: "my-4 btn btn-primary"
