@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     :password => 'admins/passwords'
   }
 
+  post 'articles/attach', to: 'articles#attach'
+
   resources :articles do
     resources :comments, only: [:create]
   end
