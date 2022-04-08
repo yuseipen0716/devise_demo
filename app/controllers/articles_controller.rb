@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   
     def index
-      @articles = Article.all.page(params[:page]).per(10)
+      @articles = Article.all.order(created_at: :desc).page(params[:page]).per(10)
       @categories = Category.all
       @archives = @articles.group("strftime('%Y%m', created_at)").order(created_at: :desc).count
       
