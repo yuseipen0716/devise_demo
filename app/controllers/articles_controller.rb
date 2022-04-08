@@ -29,6 +29,8 @@ class ArticlesController < ApplicationController
     def show
       set_article
       @categorizations = @article.categorizations.includes(:category).order(:created_at)
+      @comments = @article.comments
+      @comment = @article.comments.new
       render layout: "show_layout"
     end
 

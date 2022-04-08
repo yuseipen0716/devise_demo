@@ -16,3 +16,15 @@
   .mb-5
     .card.bg-light
       .card-body
+        - @comments.each do |comment|
+          = comment.commenter
+          = comment.body
+        = form_with(model: [@article, @comment], class: "form-horizontal") do |f|
+          .form-group.my-4
+            = f.label :commenter, class: "form-label mt-3"
+            = f.text_field :commenter, class: "form-control"
+          .form-group.my-4
+            = f.label :body, class: "form-label mt-3"
+            - f.text_area :body, class: "form-control"
+          .actions.mb-4
+            = f.submit 'Save', class: "my-4 btn btn-primary"

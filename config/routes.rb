@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     :password => 'admins/passwords'
   }
 
-  resources :articles
+  resources :articles do
+    resources :comments, only: [:create]
+  end
+
+
   get '/archives/', to: 'articles#archives', as: :monthly_archive
 
   resources :categories
