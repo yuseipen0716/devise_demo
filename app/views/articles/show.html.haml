@@ -25,6 +25,7 @@
             = f.text_field :commenter, class: "form-control"
           .form-group.my-4
             = f.label :body, class: "form-label mt-3"
-            - f.text_area :body, class: "form-control"
+            = f.text_area :body, class: "form-control"
+            = f.hidden_field :article_id, value: @article.id
           .actions.mb-4
             = f.submit 'Save', class: "my-4 btn btn-primary"
