@@ -14,9 +14,9 @@
         = link_to "devise demo", root_path, class: "navbar-brand"
         .collapse.navbar-collapse.justify-content-end#navbarNav
           %ul.navbar-nav
-            %li.nav-item
-              = link_to "新規投稿", new_article_path, class: "nav-link active"
             - if admin_signed_in?
+              %li.nav-item
+                = link_to "新規投稿", new_article_path, class: "nav-link active"
               %li.nav-item
                 = link_to "ログアウト", destroy_admin_session_path, class: "nav-link active", method: :delete
     .container
@@ -44,7 +44,8 @@
                 %li.list-group-item
                   = link_to "#{category.name}", category
           .container.mx-auto
-            = button_to "カテゴリーを管理", categories_path, :method => :get, class: "btn btn-primary my-3"
+            - if admin_signed_in?
+              = button_to "カテゴリーを管理", categories_path, :method => :get, class: "btn btn-primary my-3"
         .archives.m-3
           -# 月別アーカイブ
 -#          .card
