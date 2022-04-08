@@ -21,7 +21,7 @@ class CategoriesController < ApplicationController
 
   def show
     set_category
-    @categorizations = @category.categorizations.includes(:article).order(:created_at)
+    @categorizations = @category.categorizations.includes(:article).order(:created_at).page(params[:page]).per(10)
   end
 
   def edit
