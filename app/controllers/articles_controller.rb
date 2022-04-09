@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   
     def index
       @articles = Article.all.order(created_at: :desc).page(params[:page]).per(10)
-      @categories = Category.all
+      @categories = Category.all.order(created_at: :desc)
       @archives = @articles.group("strftime('%Y%m', created_at)").order(created_at: :desc).count
       
       # ↑controller内にこういうロジックみたいなのは書かない方がいいのだろうけど、どうにもならず、書いた。モデルの方で処理できるように書き直したいところ
