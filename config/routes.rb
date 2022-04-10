@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'article/show'
   devise_for :admins, :controllers => {
     :confirmations => 'admins/confirmations',
     :registrations => 'admins/registrations',
