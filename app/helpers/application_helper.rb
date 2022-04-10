@@ -5,4 +5,10 @@ module ApplicationHelper
     mm = yyyymm[4,2]
     return yyyy + "年" + mm + "月(" + count + ")"
   end
+
+  def show_yyyymm(yyyymm)
+    yyyy = yyyymm[0,4]
+    mm = yyyymm[4,2]
+    return yyyy + "年" + mm + "月"
+  end
 end
