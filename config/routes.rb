@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'archives/show'
   devise_for :admins, :controllers => {
     :confirmations => 'admins/confirmations',
     :registrations => 'admins/registrations',
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
   end
 
 
-  get '/archives/', to: 'articles#archives', as: :monthly_archive
+  get '/archives/:yyyymm', to: 'archives#show', as: :monthly_archive
 
   resources :categories
 
