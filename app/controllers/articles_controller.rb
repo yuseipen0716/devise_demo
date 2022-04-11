@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
       @article = Article.new(article_params)
 
       respond_to do |format|
-        if @article.save!
+        if @article.save
           format.html { redirect_to article_url(@article), notice: "記事を新規作成しました" }
           format.json { render :show, status: :created, location: @article }
         else
