@@ -15,15 +15,11 @@ class ArticlesController < ApplicationController
 
     def create
       @article = Article.new(article_params)
-
-      respond_to do |format|
-        if @article.save
-          format.html { redirect_to article_url(@article), notice: "記事を新規作成しました" }
-          format.json { render :show, status: :created, location: @article }
-        else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @article.errors, status: :unprocessable_entity }
-        end
+      @articles = Article.all.order(created_at: :desc).page(params[:page]).per(10)
+      @archives = @articles.group("strftime('%Y%m', created_at)").order(created_at: :desc).count
+      
+      if @article.save
+        redirect_to @article, notice: "記事が投稿できました"
       end
     end
     
