@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
   def show
     set_category
     @categorizations = @category.categorizations.includes(:article).order(:created_at).page(params[:page]).per(10)
-    @articles = Article.all
+    @articles = Article.all.order(created_at: :desc).page(params[:page]).per(10)
     @archives = @articles.group("strftime('%Y%m', created_at)").order(created_at: :desc).count
   end
 
