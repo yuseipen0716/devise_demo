@@ -6,8 +6,6 @@ class ArticlesController < ApplicationController
       @articles = Article.all.order(created_at: :desc).page(params[:page]).per(10)
       @categories = Category.all.order(created_at: :desc)
       @archives = @articles.group("strftime('%Y%m', created_at)").order(created_at: :desc).count
-      
-      # ↑controller内にこういうロジックみたいなのは書かない方がいいのだろうけど、どうにもならず、書いた。モデルの方で処理できるように書き直したいところ
     end
     
     def new
@@ -19,7 +17,7 @@ class ArticlesController < ApplicationController
       @article = Article.new(article_params)
 
       respond_to do |format|
-        if @article.save!
+        if @article.save
           format.html { redirect_to article_url(@article), notice: "記事を新規作成しました" }
           format.json { render :show, status: :created, location: @article }
         else
@@ -42,13 +40,9 @@ class ArticlesController < ApplicationController
       render layout: "show_layout"
     end
 
-    def archives
-      @articles = Article.all
-      @archives = @articles.group("strftime('%Y%m', created_at)").order(created_at: :desc).count
-    end
-
     def edit
       set_article
+      render layout: "simple_form"
     end
 
     def update
