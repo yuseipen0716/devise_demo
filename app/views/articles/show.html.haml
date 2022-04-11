@@ -1,6 +1,6 @@
 .container.w-75
   -# 記事詳細画面
-  %h1.fw-bolder
+  %h1.font-monospace
     = @article.title
   .container
     .small.text-muted
@@ -13,6 +13,8 @@
   -# アイキャッチ画像も
   .my-5.fs-5.lh-base.py-2
     = @article.body
+  .containew.text-center
+    = button_to "記事一覧", root_path, :method => :get, class: "btn btn-info text-light my-3"
   .mb-5
     .card.bg-light
       .card-header コメント欄

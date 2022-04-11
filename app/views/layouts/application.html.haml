@@ -1,5 +1,5 @@
 !!!
-%html
+%html{lang: "ja"}
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title DeviseDemo
@@ -19,20 +19,20 @@
                 = link_to "新規投稿", new_article_path, class: "nav-link active"
               %li.nav-item
                 = link_to "ログアウト", destroy_admin_session_path, class: "nav-link active", method: :delete
-    .container
+    .container.container-sm
       - if flash.notice
         .alert.alert-success.text-center
           = flash.notice
     %header.py-4.bg-light
-      .container
+      .container.container-sm
         .text-center.my-5
           %h1.fw-bolder Welcome Devise Demo
           %p.lead.mb-0 sample text
     .contaier.w-75.mx-auto.mt-3.d-flex
-      .container.w-75
+      .container.container-sm.w-75
         -# メイン領域
         = yield
-      .container.w-25
+      .container.container-sm.w-25
         -# サイドバー
         .categories.m-3
           -# カテゴリー欄
@@ -43,7 +43,7 @@
               - @categories.each do |category|
                 %li.list-group-item
                   = link_to "#{category.name}", category
-          .container.mx-auto
+          .container.container-sm.mx-auto
             - if admin_signed_in?
               = button_to "カテゴリーを管理", categories_path, :method => :get, class: "btn btn-primary my-3"
         .archives.m-3
